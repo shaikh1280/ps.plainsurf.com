@@ -12,8 +12,8 @@
  * @author farhat
  */
 class Login extends CI_Controller {
-    //put your code here
+
     public function index() {
-        echo 'user login section';     
+       $this->load->view('user/login'); 
     }
 }
