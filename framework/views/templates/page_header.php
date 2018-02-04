@@ -6,9 +6,6 @@
       <div class="container">
         <div class="navbar-header">
           <a href="#" class="navbar-brand"><b>Plain</b>Surf</a>
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="true">
-            <i class="fa fa-bars"></i>
-          </button>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,7 +18,7 @@
         </div>
         <!-- /.navbar-collapse -->
         <!-- Navbar Right Menu -->
-        <div class="navbar-custom-menu">
+        <div class="navbar-custom-menu right-0-sm">
           <ul class="nav navbar-nav">
             <!-- Messages: style can be found in dropdown.less-->
             <!-- User Account Menu -->
