@@ -9,10 +9,10 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="navbar-collapse pull-left collapse in" id="navbar-collapse" aria-expanded="true">
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="http://">
+        <div class="navbar-collapse pull-left collapse in header-input" id="navbar-collapse" aria-expanded="true">
+          <form class="navbar-form navbar-left header-input-form" role="search">
+            <div class="form-group header-input-form">
+              <input type="text" class="form-control header-input-form-input" id="navbar-search-input" placeholder="http://">
             </div>
           </form>
         </div>
