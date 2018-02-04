@@ -6,13 +6,13 @@
       <div class="container">
         <div class="navbar-header">
           <a href="#" class="navbar-brand"><b>Plain</b>Surf</a>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="true">
             <i class="fa fa-bars"></i>
           </button>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="navbar-collapse pull-left collapse" id="navbar-collapse" aria-expanded="false" style="height: 1px;">
+        <div class="navbar-collapse pull-left collapse in" id="navbar-collapse" aria-expanded="true">
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="form-control" id="navbar-search-input" placeholder="http://">
