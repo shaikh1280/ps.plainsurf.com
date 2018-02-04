@@ -47,7 +47,7 @@
                 <li class="user-body">
                   <div class="row">
                     <div class="col-xs-6 text-center">
-                      <a href="#"></a>
+                      <a href="#">undefined</a>
                     </div>
                     <div class="col-xs-6 text-center">
                       <a href="#">Setting</a>

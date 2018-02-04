@@ -1,3 +1,6 @@
+  <?php
+    defined('BASEPATH') OR exit('No direct script access allowed');
+  ?> 
   <link rel="stylesheet" href="/assets/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
