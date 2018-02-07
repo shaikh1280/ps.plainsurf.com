@@ -18,7 +18,7 @@ class ViewTemplate {
     private $extra;
     function __construct($viewConfig) {
         $this->controller  = &get_instance(); 
-        $this->fileName = $viewConfig['fileName'];
+        $this->fileName = $viewConfig['data']['fileName'];
         $this->data = $viewConfig['data'];
         $this->extra = isset($viewConfig['extra'])? $viewConfig['extra'] : array();
     }
