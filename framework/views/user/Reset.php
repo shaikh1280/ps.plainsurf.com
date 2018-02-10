@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+$hash =$_GET['q'];
+?> 
 <html>
 <head>
   <meta charset="utf-8">
@@ -30,49 +33,34 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Plain</b>Surf</a>
+    <a href="Resetpassword"><b>Reset</b>Password</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
-
-    <form action="../../index2.html" method="post">
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    <form action="" method="post">
+              <p class="login-box-msg">Your Mail ID </p>
+    <div class="form-group has-feedback">
+        <input type="email" id="e1" name="e1" class="form-control" placeholder="Enter Your Mail">
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          <input type="password" id="pass1" name="pass1" class="form-control" placeholder="Enter password">
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+        <div class="form-group has-feedback">
+            <input type="password" id="pass2" name="pass2" class="form-control" placeholder="Re-enter Password">
+            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="row">
-        <div class="col-xs-7">
-            <label>
-              <input type="checkbox">Remember Me
-            </label>
-            <div class="checkbox icheck">
-          </div>
-        </div>
         <!-- /.col -->
-        <div class="col-xs-5">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        <div class="box-footer">
+            <button type="submit" formaction="Update?q=<?php echo $hash?>" class="btn btn-info pull-right">Submit</button>
+            <button type="submit" formaction="Forgetpassword" class="btn btn-default">Cancel</button>
+                
         </div>
         <!-- /.col -->
       </div>
     </form>
-
-    <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div>
-    <!-- /.social-auth-links -->
-
-    <a href="/user/Forgetpassword">I forgot my password</a><br>
-    <a href="/user/Register" class="text-center">Register a new membership</a>
-
   </div>
   <!-- /.login-box-body -->
 </div>
@@ -94,4 +82,6 @@
   });
 </script>
 </body>
+</html>
+
 </html>

@@ -11,7 +11,7 @@
  *
  * @author farhat
  */
-class Login extends CI_Controller {
+class Resetpassword extends CI_Controller {
 
     public function index() {
         $viewConfig = array('fileName'=>'main', 'data'=>array(
@@ -19,6 +19,6 @@ class Login extends CI_Controller {
             ));
         $this->load->library('viewTemplate',$viewConfig);
         $this->viewtemplate->render();
-       $this->load->view('/user/login'); 
+       $this->load->view('user/Reset'); 
     }
 }

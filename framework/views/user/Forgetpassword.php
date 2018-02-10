@@ -30,49 +30,28 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Plain</b>Surf</a>
+      <a href="Forgetpassword"><b>Reset</b>Password</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Enter Your Registered Email ID</p>
 
-    <form action="../../index2.html" method="post">
+    <form action="login" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+          <input type="email" id="email1" name="email1" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
+ 
       <div class="row">
-        <div class="col-xs-7">
-            <label>
-              <input type="checkbox">Remember Me
-            </label>
-            <div class="checkbox icheck">
-          </div>
+        <!-- /.col -->
+        <div class="box-footer">
+                <button type="submit" class="btn btn-default">Cancel</button>
+                <button type="submit" formaction="Check" class="btn btn-info pull-right">Submit</button>
         </div>
         <!-- /.col -->
-        <div class="col-xs-5">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-        </div>
-        <!-- /.col -->
+      </div>
       </div>
     </form>
-
-    <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div>
-    <!-- /.social-auth-links -->
-
-    <a href="/user/Forgetpassword">I forgot my password</a><br>
-    <a href="/user/Register" class="text-center">Register a new membership</a>
-
   </div>
   <!-- /.login-box-body -->
 </div>
@@ -84,14 +63,8 @@
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="../../plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
-</script>
 </body>
 </html>
+
+</html>
+ 
