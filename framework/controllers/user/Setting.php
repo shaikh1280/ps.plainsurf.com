@@ -14,6 +14,12 @@
 class Setting extends CI_Controller {
     //put your code here
     public function index() {
-        echo 'user setting section';     
+        $viewConfig = array('data'=>array( 
+            'fileName'=> '/user/setting',
+            'pageName'=>'setting', 
+            'pageTitle'=>'Setting'
+        ));
+        $this->load->library('viewTemplate',$viewConfig);
+        $this->viewtemplate->render();
     }
 }

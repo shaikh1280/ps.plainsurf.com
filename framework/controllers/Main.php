@@ -20,9 +20,11 @@ class Main extends CI_Controller {
 	 */
 	public function index()
 	{
-        $viewConfig = array('fileName'=>'main', 'data'=>array(
-            'pageName'=>'main', 'pageTitle'=>'Home'
-            ));
+        $viewConfig = array('data'=>array( 
+            'fileName'=> 'main',
+            'pageName'=>'main', 
+            'pageTitle'=>'Home'
+        ));
         $this->load->library('viewTemplate',$viewConfig);
         $this->viewtemplate->render();
 	}

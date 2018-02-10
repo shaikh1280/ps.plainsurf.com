@@ -14,6 +14,12 @@
 class Signup extends CI_Controller {
     //put your code here
     public function index() {
-        echo 'user signup section';     
+        $viewConfig = array('data'=>array( 
+            'fileName'=> 'user/signup',
+            'pageName'=>'signup', 
+            'pageTitle'=>'Signup'
+        ));
+        $this->load->library('viewTemplate',$viewConfig);
+        $this->viewtemplate->render();     
     }
 }
