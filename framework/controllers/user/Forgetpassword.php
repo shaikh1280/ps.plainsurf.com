@@ -19,6 +19,6 @@ class Forgetpassword extends CI_Controller {
             ));
         $this->load->library('viewTemplate',$viewConfig);
         $this->viewtemplate->render();
-       $this->load->view('/user/Forgetpassword'); 
+       $this->load->view('/user/forgetpassword'); 
     }
 }

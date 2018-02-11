@@ -19,6 +19,6 @@ class Resetpassword extends CI_Controller {
             ));
         $this->load->library('viewTemplate',$viewConfig);
         $this->viewtemplate->render();
-       $this->load->view('user/Reset'); 
+       $this->load->view('user/reset'); 
     }
 }

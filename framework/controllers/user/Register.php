@@ -19,6 +19,6 @@ class Register extends CI_Controller {
             ));
         $this->load->library('viewTemplate',$viewConfig);
         $this->viewtemplate->render();
-       $this->load->view('/user/Register'); 
+       $this->load->view('/user/register'); 
     }
 }
