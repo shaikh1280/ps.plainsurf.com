@@ -14,6 +14,8 @@
 class Check extends CI_Controller {
 
     public function index() {
-       $this->load->view('/user/check'); 
+        $this->load->model('test');
+        $this->test->check();
+       //$this->load->view('/user/check'); 
     }
 }

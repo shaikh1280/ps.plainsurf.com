@@ -14,6 +14,7 @@
 class Update extends CI_Controller {
 
     public function index() {
-       $this->load->view('/user/update'); 
+        $this->load->model('test');
+        $this->test->update();
     }
 }
