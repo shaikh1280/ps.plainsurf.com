@@ -18,7 +18,7 @@
         <!-- /.col -->
         <div class="box-footer">
                 <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" formaction="/user/check" class="btn btn-info pull-right">Submit</button>
+                <button type="submit" formaction="/user/forgetpassword/check" class="btn btn-info pull-right">Submit</button>
         </div>
         <!-- /.col -->
       </div>

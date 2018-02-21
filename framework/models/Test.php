@@ -38,7 +38,7 @@ class Test extends CI_Controller {
             $output = openssl_encrypt($email, $encrypt_method, $key, 0, $iv);
             $password = base64_encode($output);
 
-            $pwrurl = "localhost:8080/user/Resetpassword?q=" . $password;
+            $pwrurl = "localhost:8080/user/forgetpassword/resetpassword?q=" . $password;
 
             // Mail them their key
             $mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
@@ -75,13 +75,13 @@ class Test extends CI_Controller {
                 
                 if ($q) {
                     echo "Record updated successfully";
-                    header("Location:Login");
+                    header("Location:/user/login");
                 } else {
                     echo "Error updating record: " . $q->error;
-                    header("Location:Resetpassword");
+                    header("Location:/user/forgetpassword/resetpassword");
                 }
             } else {
-                header("Location:Resetpassword");
+                header("Location:/user/forgetpassword/resetpassword");
             }
     }
 

@@ -5,7 +5,7 @@ $hash =$_GET['q'];
 <html>
 <div class="login-box">
   <div class="login-logo">
-    <a href="/user/resetpassword"><b>Reset</b>Password</a>
+    <a href="/user/forgetpassword/resetpassword"><b>Reset</b>Password</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -21,7 +21,7 @@ $hash =$_GET['q'];
       <div class="row">
         <!-- /.col -->
         <div class="box-footer">
-            <button type="submit" formaction="/user/update?q=<?php echo $hash?>" class="btn btn-info pull-right">Submit</button>
+            <button type="submit" formaction="/user/forgetpassword/update?q=<?php echo $hash?>" class="btn btn-info pull-right">Submit</button>
             <button type="submit" formaction="/user/forgetpassword" class="btn btn-default">Cancel</button>
                 
         </div>
