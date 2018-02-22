@@ -14,10 +14,16 @@
 class Setting extends CI_Controller {
     //put your code here
     
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('user/Set');
+    }
+
+
     public function index() {
-        $this->load->database();
-        $query = $this->db->get("devices");
-        $result = $query->result();
+        //$this->load->database();
+        //$query = $this->db->get("devices");
+        $result = $this->Set->index();
     
         $viewConfig = array('data'=>array( 
             'fileName'=> '/user/setting',

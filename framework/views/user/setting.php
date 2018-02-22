@@ -59,6 +59,7 @@
 }
 
 .price {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     list-style-type: none;
     border: 1px solid #eee;
     margin: 0;
@@ -68,7 +69,7 @@
 }
 
 .price:hover {
-    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2)
 }
 
 .price .headerCard{

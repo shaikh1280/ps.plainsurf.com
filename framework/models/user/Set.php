@@ -14,10 +14,15 @@
 class Set extends CI_Model{
     //put your code here
     
-    public function index() {
+    public function __construct() {
+        parent::__construct();
         $this->load->database();
+    }
+
+
+    public function index() {
         $query = $this->db->get("devices");
-        $data['records'] = $query->result();
-        $this->load->view('/user/setting',$data);
+        return $query->result();
+        //$this->load->view('/user/setting',$data);
     }
 }
