@@ -9,7 +9,7 @@
 /**
  * Description of Setting 
  *
- * @author farhat
+ * @author faizan
  */
 class Setting extends CI_Controller {
     //put your code here
@@ -21,10 +21,7 @@ class Setting extends CI_Controller {
 
 
     public function index() {
-        //$this->load->database();
-        //$query = $this->db->get("devices");
         $result = $this->Set->index();
-    
         $viewConfig = array('data'=>array( 
             'fileName'=> '/user/setting',
             'pageName'=>'setting', 

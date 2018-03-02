@@ -104,7 +104,7 @@
         
     foreach ($result as $r){
         
-        echo '<li>'.$r->system_name.'</li>';
+        echo '<li>'.$r->system.'</li>';
     }
     
     ?>
