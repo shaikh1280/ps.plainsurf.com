@@ -12,6 +12,7 @@ $pwd = __DIR__;
     </head>
     <body id='<?=$pageName?>' class="hold-transition skin-purple layout-top-nav login-page">
         <?php require_once $pwd.'/templates/page_header.php'; ?>
+        <?php require_once $pwd."/$fileName.php"; ?>
         <?php require_once $pwd.'/templates/global_js.php' ;?>
     </body>
 </html>

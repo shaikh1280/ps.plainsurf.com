@@ -14,7 +14,13 @@
 class Profile extends CI_Controller {
     //put your code here
     public function index() {
-        echo 'user profile section';     
+        $viewConfig = array('data'=>array( 
+            'fileName'=> '/user/profile',
+            'pageName'=>'profile', 
+            'pageTitle'=>'Profile'
+        ));
+        $this->load->library('viewTemplate',$viewConfig);
+        $this->viewtemplate->render();     
     }
 }
 ?>

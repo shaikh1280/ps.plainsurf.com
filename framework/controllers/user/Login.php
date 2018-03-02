@@ -14,12 +14,13 @@
 class Login extends CI_Controller {
 
     public function index() {
-        $viewConfig = array('fileName'=>'main', 'data'=>array(
-            'pageName'=>'main', 'pageTitle'=>'Home'
-            ));
+        $viewConfig = array('data'=>array( 
+            'fileName'=> '/user/login',
+            'pageName'=>'login', 
+            'pageTitle'=>'Login'
+        ));
         $this->load->library('viewTemplate',$viewConfig);
         $this->viewtemplate->render();
-       $this->load->view('/user/login'); 
     }
 }
 ?>
