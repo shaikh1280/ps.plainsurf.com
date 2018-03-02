@@ -43,12 +43,12 @@ class Test extends CI_Controller {
             // Mail them their key
             $mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
             mail($email, "PlainSurf Password Reset Link", $mailbody);
+          //  $message = "Your Reset Password Link is Successfully send to your mail ";
+           // echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";
             echo $pwrurl;
         } else {
-
-            header("Location:Forgetpassword");
             $message = "Your Enter mail it not in the Database. Plz Enter Registered Mail Id";
-            echo "<script type='text/javascript'>alert('$message');</script>";
+            echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword';</script>";
         }
     }
 
@@ -74,14 +74,15 @@ class Test extends CI_Controller {
                 $q = $this->db->query("UPDATE Reset SET Password = '$p1' WHERE Email = '$output'");
                 
                 if ($q) {
-                    echo "Record updated successfully";
-                    header("Location:/user/login");
+                    $message = "Your Password is Successfully Changed . You can login now .";
+            echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";
                 } else {
-                    echo "Error updating record: " . $q->error;
-                    header("Location:/user/forgetpassword/resetpassword");
+                    $message = "Error updating record: " . $q->error;
+                    echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword/resetpassword?q=$hash';</script>";
                 }
             } else {
-                header("Location:/user/forgetpassword/resetpassword");
+                $message = "Your Enter Password are not match ";
+                echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword/resetpassword?q=$hash';</script>";
             }
     }
 
