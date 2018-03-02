@@ -14,12 +14,12 @@
 class Register extends CI_Controller {
 
     public function index() {
-        $viewConfig = array('fileName'=>'main', 'data'=>array(
-            'pageName'=>'main', 'pageTitle'=>'Home'
-            ));
+        $viewConfig = array('data'=>array( 
+            'fileName'=> '/user/register',
+            'pageName'=>'forgetpassword', 
+            'pageTitle'=>'forgetpassword'
+        ));
         $this->load->library('viewTemplate',$viewConfig);
-        $this->viewtemplate->render();
-       $this->load->view('/user/register'); 
+        $this->viewtemplate->render();  
     }
 }
-?>

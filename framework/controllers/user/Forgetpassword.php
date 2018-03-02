@@ -14,12 +14,13 @@
 class Forgetpassword extends CI_Controller {
 
     public function index() {
-        $viewConfig = array('fileName'=>'main', 'data'=>array(
-            'pageName'=>'main', 'pageTitle'=>'Home'
-            ));
+        $viewConfig = array('data'=>array( 
+            'fileName'=> '/user/forgetpassword',
+            'pageName'=>'forgetpassword', 
+            'pageTitle'=>'forgetpassword'
+        ));
         $this->load->library('viewTemplate',$viewConfig);
-        $this->viewtemplate->render();
-       $this->load->view('/user/forgetpassword'); 
+        $this->viewtemplate->render();            
     }
     
     public function check(){
@@ -33,12 +34,12 @@ class Forgetpassword extends CI_Controller {
     }
     
     public function resetpassword() {
-        $viewConfig = array('fileName'=>'main', 'data'=>array(
-            'pageName'=>'main', 'pageTitle'=>'Home'
-            ));
+        $viewConfig = array('data'=>array( 
+            'fileName'=> '/user/reset',
+            'pageName'=>'reset', 
+            'pageTitle'=>'reset'
+        ));
         $this->load->library('viewTemplate',$viewConfig);
-        $this->viewtemplate->render();
-       $this->load->view('user/reset'); 
+        $this->viewtemplate->render(); 
     }
 }
-?>

@@ -23,4 +23,3 @@ class Signup extends CI_Controller {
         $this->viewtemplate->render();     
     }
 }
-?>
