@@ -17,3 +17,4 @@ class Signup extends CI_Controller {
         echo 'user signup section';     
     }
 }
+?>

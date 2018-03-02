@@ -9,7 +9,7 @@
 /**
  * Description of Login
  *
- * @author farhat
+ * @author King-TheHacker
  */
 class Forgetpassword extends CI_Controller {
 
@@ -41,3 +41,4 @@ class Forgetpassword extends CI_Controller {
        $this->load->view('user/reset'); 
     }
 }
+?>

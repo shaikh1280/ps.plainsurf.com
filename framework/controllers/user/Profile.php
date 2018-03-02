@@ -17,3 +17,4 @@ class Profile extends CI_Controller {
         echo 'user profile section';     
     }
 }
+?>

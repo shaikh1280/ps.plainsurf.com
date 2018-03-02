@@ -10,7 +10,7 @@
 /**
  * Description of Database
  *
- * @author king-thehacker
+ * @author King-TheHacker
  */
 class Test extends CI_Controller {
 
@@ -86,3 +86,4 @@ class Test extends CI_Controller {
     }
 
 }
+?>

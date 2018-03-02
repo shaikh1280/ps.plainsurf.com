@@ -2,6 +2,7 @@
 <?php
 $hash =$_GET['q'];
 ?> 
+
 <html>
 <div class="login-box">
   <div class="login-logo">

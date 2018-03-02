@@ -17,3 +17,4 @@ class Setting extends CI_Controller {
         echo 'user setting section';     
     }
 }
+?>
