@@ -20,7 +20,7 @@ class Test extends CI_Controller {
         $email = $_POST['email1'];
         $this->load->database();
 
-        $q = $this->db->query("SELECT ID,Email,Password FROM Reset where Email='$email'");
+        $q = $this->db->query("SELECT email FROM account where email='$email'");
 
         $re = $q->result();
 
@@ -38,14 +38,15 @@ class Test extends CI_Controller {
             $output = openssl_encrypt($email, $encrypt_method, $key, 0, $iv);
             $password = base64_encode($output);
 
-            $pwrurl = "localhost:8080/user/forgetpassword/resetpassword?q=" . $password;
+            $baseurl = base_url();
+            $pwrurl = $baseurl . "user/forgetpassword/resetpassword?q=" . $password;
 
             // Mail them their key
             $mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
-            mail($email, "PlainSurf Password Reset Link", $mailbody);
-          //  $message = "Your Reset Password Link is Successfully send to your mail ";
+            //mail('akshay@plainsurf.com', "PlainSurf Password Reset Link", $mailbody);  //remove this comment when host
+            //$message = "Your Reset Password Link is Successfully send to your mail ";
            // echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";
-            echo $pwrurl;
+            echo $pwrurl;   // do comment when host this code
         } else {
             $message = "Your Enter mail it not in the Database. Plz Enter Registered Mail Id";
             echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword';</script>";
@@ -67,23 +68,23 @@ class Test extends CI_Controller {
         // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
         $iv = substr(hash('sha256', $secret_iv), 0, 16);
         $output = openssl_decrypt(base64_decode($hash), $encrypt_method, $key, 0, $iv);
-            if ($p1 == $p2) {
-                // Create connection
-                $this->load->database();
+        if ($p1 == $p2) {
+            // Create connection
+            $this->load->database();
 
-                $q = $this->db->query("UPDATE Reset SET Password = '$p1' WHERE Email = '$output'");
-                
-                if ($q) {
-                    $message = "Your Password is Successfully Changed . You can login now .";
-            echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";
-                } else {
-                    $message = "Error updating record: " . $q->error;
-                    echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword/resetpassword?q=$hash';</script>";
-                }
+            $q = $this->db->query("UPDATE account SET password = '$p1',password_md5 = PASSWORD($p1) WHERE email = '$output'");
+
+            if ($q) {
+                $message = "Your Password is Successfully Changed . You can login now .";
+                echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";
             } else {
-                $message = "Your Enter Password are not match ";
+                $message = "Error updating record: " . $q->error;
                 echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword/resetpassword?q=$hash';</script>";
             }
+        } else {
+            $message = "Your Enter Password are not match ";
+            echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword/resetpassword?q=$hash';</script>";
+        }
     }
 
 }
