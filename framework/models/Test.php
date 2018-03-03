@@ -20,7 +20,7 @@ class Test extends CI_Controller {
         $email = $_POST['email1'];
         $this->load->database();
 
-        $q = $this->db->query("SELECT email FROM account where email='$email'");
+        $q = $this->db->get_where('account', array('email' => $email));
 
         $re = $q->result();
 
@@ -45,7 +45,7 @@ class Test extends CI_Controller {
             $mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
             //mail('akshay@plainsurf.com', "PlainSurf Password Reset Link", $mailbody);  //remove this comment when host
             //$message = "Your Reset Password Link is Successfully send to your mail ";
-           // echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";
+            // echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";
             echo $pwrurl;   // do comment when host this code
         } else {
             $message = "Your Enter mail it not in the Database. Plz Enter Registered Mail Id";
@@ -72,7 +72,12 @@ class Test extends CI_Controller {
             // Create connection
             $this->load->database();
 
-            $q = $this->db->query("UPDATE account SET password = '$p1',password_md5 = PASSWORD($p1) WHERE email = '$output'");
+            $udata = array(
+                'password' => $p1,
+                'password_md5' =>hash('sha256',$p1),
+            );
+            $this->db->where('email', $output);
+            $q = $this->db->update('account',$udata);
 
             if ($q) {
                 $message = "Your Password is Successfully Changed . You can login now .";

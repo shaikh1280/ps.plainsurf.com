@@ -27,10 +27,8 @@ CREATE TABLE `session` (
   `device_info` varchar(4096) DEFAULT NULL,
   `uid` int(128) DEFAULT NULL,
   `flag` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `session` (`uid`),
-  CONSTRAINT `session_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `account` (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

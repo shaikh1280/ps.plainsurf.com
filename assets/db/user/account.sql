@@ -23,15 +23,15 @@ DROP TABLE IF EXISTS `account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `account` (
-  `uid` int(128) NOT NULL AUTO_INCREMENT,
+  `id` int(128) NOT NULL AUTO_INCREMENT,
   `username` varchar(128) DEFAULT NULL,
   `email` varchar(128) DEFAULT NULL,
   `time_created` varchar(128) DEFAULT NULL,
   `last_modified` varchar(128) DEFAULT NULL,
   `password` varchar(128) DEFAULT NULL,
   `password_md5` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
