@@ -22,8 +22,6 @@
                         <label>
                             <input type="checkbox">Remember Me
                         </label>
-                        <div class="checkbox icheck">
-                        </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-5">

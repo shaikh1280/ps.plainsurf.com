@@ -16,9 +16,14 @@ class Test extends CI_Controller {
 
     //put your code here
 
-    public function check() {
-        $email = $_POST['email1'];
+    public function __construct() {
+        parent::__construct();
         $this->load->database();
+    }    
+    public function check() {
+
+        $email = $_POST['email1'];
+        
 
         $q = $this->db->get_where('account', array('email' => $email));
 
@@ -70,11 +75,10 @@ class Test extends CI_Controller {
         $output = openssl_decrypt(base64_decode($hash), $encrypt_method, $key, 0, $iv);
         if ($p1 == $p2) {
             // Create connection
-            $this->load->database();
 
             $udata = array(
                 'password' => $p1,
-                'password_md5' =>hash('sha256',$p1),
+                'password_md5' =>hash('sha256',$p1)
             );
             $this->db->where('email', $output);
             $q = $this->db->update('account',$udata);
