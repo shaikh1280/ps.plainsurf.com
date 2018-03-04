@@ -1,35 +1,67 @@
 <!DOCTYPE html>
 <?php
-$hash =$_GET['q'];
+$hash = $_GET['q'];
 ?> 
-
 <html>
-<div class="login-box">
-  <div class="login-logo">
-    <a href="/user/forgetpassword/resetpassword"><b>Reset</b>Password</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <form action="" method="post">
-      <div class="form-group has-feedback">
-          <input type="password" id="pass1" name="pass1" class="form-control" placeholder="Enter password">
-          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-        <div class="form-group has-feedback">
-            <input type="password" id="pass2" name="pass2" class="form-control" placeholder="Re-enter Password">
-            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <!-- /.col -->
-        <div class="box-footer">
-            <button type="submit" formaction="/user/forgetpassword/update?q=<?php echo $hash?>" class="btn btn-info pull-right">Submit</button>
-            <button type="submit" formaction="/user/forgetpassword" class="btn btn-default">Cancel</button>
-                
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="/user/forgetpassword/resetpassword"><b>Reset</b>Password</a>
         </div>
-        <!-- /.col -->
-      </div>
-    </form>
-  </div>
-  <!-- /.login-box-body -->
-</div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Reset Password</p>
+            <?php
+            echo form_open('/user/forgetpassword/update?q=' . $hash, ['class' => 'form', 'method' => 'POST']);
+            ?>
+            <div class="form-group has-feedback">
+                <?php
+                $data = array(
+                    'type' => 'password',
+                    'name' => 'pass1',
+                    'placeholder' => 'Please Enter New Password  ',
+                    'class' => 'form-control'
+                );
+                echo form_password($data);
+                ?>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <?php
+                $data = array(
+                    'type' => 'password',
+                    'name' => 'pass2',
+                    'placeholder' => 'Please Re-enter Password ',
+                    'class' => 'form-control'
+                );
+                echo form_password($data);
+                ?>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <!-- /.col -->
+                <div class="box-footer">
+                    <?php
+                    $data = array(
+                        'type' => 'submit',
+                        'value' => 'Cancel',
+                        'formaction' => '/user/login',
+                        'class' => 'btn btn-danger'
+                    );
+                    echo form_submit($data);
+                    ?>
+                    <?php
+                    $data = array(
+                        'type' => 'submit',
+                        'value' => 'Submit',
+                        'class' => 'btn btn-info pull-right'
+                    );
+                    echo form_submit($data);
+                    ?>
+                </div>
+                <!-- /.col -->
+            </div>
+            <?php echo form_close(); ?>
+        </div>
+        <!-- /.login-box-body -->
+    </div>
 </html>

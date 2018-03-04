@@ -12,26 +12,19 @@
  *
  * @author King-TheHacker
  */
-class Test extends CI_Controller {
-
-    //put your code here
+class Reset extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
         $this->load->database();
-    }    
-    public function check() {
-
-        $email = $_POST['email1'];
-        
-
+    }
+    
+    public function check($data = '') {
+        $email = $data[0];
         $q = $this->db->get_where('account', array('email' => $email));
-
         $re = $q->result();
-
         if ($re != null) {
             // Create a unique salt. This will never leave PHP unencrypted.
-
             $encrypt_method = "AES-256-CBC";
             $secret_key = 'This is my secret key';
             $secret_iv = 'This is my secret iv';
@@ -45,7 +38,6 @@ class Test extends CI_Controller {
 
             $baseurl = base_url();
             $pwrurl = $baseurl . "user/forgetpassword/resetpassword?q=" . $password;
-
             // Mail them their key
             $mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
             //mail('akshay@plainsurf.com', "PlainSurf Password Reset Link", $mailbody);  //remove this comment when host
@@ -58,12 +50,10 @@ class Test extends CI_Controller {
         }
     }
 
-    public function update() {
-        $p1 = $_POST['pass1'];
-        $p2 = $_POST['pass2'];
-        $hash = $_GET['q'];
-
-
+    public function update($data = '') {
+        $p1 = $data[0];
+        $p2 = $data[1];
+        $hash = $data[2];
         $encrypt_method = "AES-256-CBC";
         $secret_key = 'This is my secret key';
         $secret_iv = 'This is my secret iv';
@@ -75,7 +65,6 @@ class Test extends CI_Controller {
         $output = openssl_decrypt(base64_decode($hash), $encrypt_method, $key, 0, $iv);
         if ($p1 == $p2) {
             // Create connection
-
             $udata = array(
                 'password' => $p1,
                 'password_md5' =>hash('sha256',$p1)
@@ -95,5 +84,4 @@ class Test extends CI_Controller {
             echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword/resetpassword?q=$hash';</script>";
         }
     }
-
 }

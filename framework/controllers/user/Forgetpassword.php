@@ -12,7 +12,6 @@
  * @author King-TheHacker
  */
 class Forgetpassword extends CI_Controller {
-
     public function index() {
         $viewConfig = array('data'=>array( 
             'fileName'=> '/user/forgetpassword',
@@ -20,17 +19,25 @@ class Forgetpassword extends CI_Controller {
             'pageTitle'=>'forgetpassword'
         ));
         $this->load->library('viewTemplate',$viewConfig);
-        $this->viewtemplate->render();            
+        $this->viewtemplate->render();  
     }
     
     public function check(){
-        $this->load->model('test');
-        $this->test->check();
+        $data = array(
+        $this->input->post('u_email')
+        );
+        $this->load->model('reset');
+        $this->reset->check($data);
     }
     
     public function update() {
-        $this->load->model('test');
-        $this->test->update();
+        $data = array(
+        $this->input->post('pass1'),
+        $this->input->post('pass1'),
+        $this->input->GET['q']
+        );
+        $this->load->model('reset');
+        $this->reset->update($data);
     }
     
     public function resetpassword() {
