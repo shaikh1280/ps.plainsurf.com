@@ -18,8 +18,8 @@ class Set extends CI_Model{
         parent::__construct();
         $this->load->database();
     }
-    public function index() {
-        $query = $this->db->get_where('device',['id'=>'2']);
+    public function index($uid) {
+        $query = $this->db->get_where('session',['uid'=>$uid]);
         return $query->result();
         //$this->load->view('/user/setting',$data);
     }

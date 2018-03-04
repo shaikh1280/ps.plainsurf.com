@@ -100,11 +100,10 @@
 <div class="columns">
   <ul class="price">
     <li class="headerCard">Recently used devices</li>
-    <?php
-        
+    <?php   
     foreach ($result as $r){
         
-        echo '<li>'.$r->system.'</li>';
+        echo '<li>'.$r->device_info.'</li>';
     }
     
     ?>

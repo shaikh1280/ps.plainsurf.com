@@ -20,8 +20,8 @@ class Setting extends CI_Controller {
     }
 
 
-    public function index() {
-        $result = $this->Set->index();
+    public function index($uid) {
+        $result = $this->Set->index($uid);
         $viewConfig = array('data'=>array( 
             'fileName'=> '/user/setting',
             'pageName'=>'setting', 
