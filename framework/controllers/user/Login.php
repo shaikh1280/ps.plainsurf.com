@@ -22,5 +22,13 @@ class Login extends CI_Controller {
         $this->load->library('viewTemplate',$viewConfig);
         $this->viewtemplate->render();
     }
+    public function logincheck() {
+        $data = array(
+        $this->input->post('email'),
+        $this->input->post('pass1'),  
+        );
+        $this->load->model('loginm');
+        $this->loginm->logincheck($data); 
+    }
 }
 

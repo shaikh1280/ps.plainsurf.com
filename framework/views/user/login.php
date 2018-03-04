@@ -8,28 +8,67 @@
         <div class="login-box-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="../../index2.html" method="post">
-                <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="row">
+            <?php
+            echo form_open('/user/login/logincheck', ['class' => 'form', 'method' => 'POST']);
+            ?>
+            <div class="form-group has-feedback">
+                <?php
+                $data = array(
+                    'type' => 'email',
+                    'name' => 'email',
+                    'placeholder' => 'Please Enter Your Email ',
+                    'class' => 'form-control'
+                );
+                echo form_input($data);
+                ?>
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <?php
+                $data = array(
+                    'type' => 'password',
+                    'name' => 'pass1',
+                    'placeholder' => 'Please Enter Your New Password ',
+                    'class' => 'form-control'
+                );
+                echo form_password($data);
+                ?>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="checkbox icheck">
                     <div class="col-xs-7">
-                        <label>
-                            <input type="checkbox">Remember Me
-                        </label>
+                        <?php
+                        $data = array(
+                            'onload' => 'disableSubmit()',
+                            'name' => 'C1',
+                            'id' => 'C1',
+                            'value' => '1',
+                            'checked' => TRUE,
+                            'onchange' => 'activateButton(this)',
+                            'style' => 'margin:1px'
+                        );
+
+                        echo form_checkbox($data);
+                        ?>
+                        <label>Remember Me</label>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-xs-5">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                    </div>
-                    <!-- /.col -->
                 </div>
-            </form>
+                <!-- /.col -->
+                <div class="col-xs-5">
+                    <?php
+                    $data = array(
+                        'type' => 'submit',
+                        'id' => 'submit',
+                        'value' => 'Sign In',
+                        'class' => 'btn btn-primary btn-block btn-flat'
+                    );
+                    echo form_submit($data);
+                    ?>
+                </div>
+                <!-- /.col -->
+            </div>
+            <?php echo form_close(); ?>
 
             <div class="social-auth-links text-center">
                 <p>- OR -</p>
