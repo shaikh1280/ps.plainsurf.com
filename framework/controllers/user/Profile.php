@@ -23,3 +23,4 @@ class Profile extends CI_Controller {
         $this->viewtemplate->render();     
     }
 }
+

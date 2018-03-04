@@ -32,3 +32,4 @@ class Setting extends CI_Controller {
         $this->viewtemplate->render();
         }
 }
+
