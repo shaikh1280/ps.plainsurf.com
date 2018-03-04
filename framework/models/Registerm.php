@@ -32,7 +32,7 @@ class Registerm extends CI_Controller {
             $udata = array(
                 'username' => $data[0],
                 'email' => $data[1],
-                'time_created' => date('Y-m-d H:i:s'),
+                'time_created' => mdate('%Y-%m-%d'),
                 'password' => $data[2],
                 'password_md5' =>hash('sha256',$data[2])
             );

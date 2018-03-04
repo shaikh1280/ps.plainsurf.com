@@ -24,8 +24,8 @@ class Login extends CI_Controller {
     }
     public function logincheck() {
         $data = array(
-        $this->input->post('email'),
-        $this->input->post('pass1'),  
+        'email1' => $this->input->post('email'),
+        'pass1' => hash('sha256', $this->input->post('pass1')) 
         );
         $this->load->model('loginm');
         $this->loginm->logincheck($data); 

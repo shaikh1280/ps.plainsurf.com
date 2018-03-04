@@ -52,7 +52,7 @@
                 $data = array(
                     'type' => 'password',
                     'name' => 'pass2',
-                    'placeholder' => 'Please Enter Your New Password ',
+                    'placeholder' => 'Please Re-enter ',
                     'class' => 'form-control'
                 );
                 echo form_password($data);
