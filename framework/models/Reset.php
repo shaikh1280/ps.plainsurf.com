@@ -43,7 +43,8 @@ class Reset extends CI_Controller {
             //mail('akshay@plainsurf.com', "PlainSurf Password Reset Link", $mailbody);  //remove this comment when host
             //$message = "Your Reset Password Link is Successfully send to your mail ";
             // echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";
-            echo $pwrurl;   // do comment when host this code
+            //echo $pwrurl;   // do comment when host this code
+            header('Location:'.$pwrurl);
         } else {
             $message = "Your Enter mail it not in the Database. Plz Enter Registered Mail Id";
             echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword';</script>";
