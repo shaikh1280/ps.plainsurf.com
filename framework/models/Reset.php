@@ -21,9 +21,9 @@ class Reset extends CI_Model {
     
     public function check($data = '') {
         $email = $data[0];
-        $q = $this->db->get_where('account', array('email' => $email));
-        $re = $q->result();
-        if ($re != null) {
+        $query = $this->db->get_where('account', array('email' => $email));
+        $result = $query->result();
+        if ($result != null) {
             // Create a unique salt. This will never leave PHP unencrypted.
             $encrypt_method = "AES-256-CBC";
             $secret_key = 'This is my secret key';
@@ -33,17 +33,16 @@ class Reset extends CI_Model {
 
             $iv = substr(hash('sha256', $secret_iv), 0, 16);
 
-            $output = openssl_encrypt($email, $encrypt_method, $key, 0, $iv);
-            $password = base64_encode($output);
+            $encryptkey = openssl_encrypt($email, $encrypt_method, $key, 0, $iv);
+            $encodekey = base64_encode($encryptkey);
 
             $baseurl = base_url();
-            $pwrurl = $baseurl . "user/forgetpassword/resetpassword?q=" . $password;
+            $pwrurl = $baseurl . "user/forgetpassword/resetpassword?q=" . $encodekey;
             // Mail them their key
             $mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
             //mail('akshay@plainsurf.com', "PlainSurf Password Reset Link", $mailbody);  //remove this comment when host
             //$message = "Your Reset Password Link is Successfully send to your mail ";
-            // echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";
-            //echo $pwrurl;   // do comment when host this code
+            // echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/session';</script>";
             header('Location:'.$pwrurl);
         } else {
             $message = "Your Enter mail it not in the Database. Plz Enter Registered Mail Id";
@@ -75,7 +74,7 @@ class Reset extends CI_Model {
 
             if ($q) {
                 $message = "Your Password is Successfully Changed . You can login now .";
-                echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";
+                echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/session';</script>";
             } else {
                 $message = "Error updating record: " . $q->error;
                 echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword/resetpassword?q=$hash';</script>";

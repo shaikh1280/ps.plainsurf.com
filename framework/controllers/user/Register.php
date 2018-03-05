@@ -28,8 +28,7 @@ class Register extends CI_Controller {
         $this->input->post('name'),
         $this->input->post('email'),
         $this->input->post('pass1'),
-        $this->input->post('pass2'),
-        $this->input->post('C1')    
+        $this->input->post('pass2'),   
         );
         $this->load->model('registerm');
         $ch = $this->registerm->remailcheck($data[1]); 

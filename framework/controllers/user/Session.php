@@ -11,7 +11,7 @@
  *
  * @author farhat
  */
-class Login extends CI_Controller {
+class Session extends CI_Controller {
     public function __construct() {
         parent::__construct();
         
@@ -30,8 +30,12 @@ class Login extends CI_Controller {
         'email1' => $this->input->post('email'),
         'pass1' => hash('sha256', $this->input->post('pass1')) 
         );
-        $this->load->model('loginm');
-        $this->loginm->logincheck($data);
+        $this->load->model('sessionm');
+        $this->sessionm->logincheck($data);
+    }
+    public function logout() {
+        $this->load->model('sessionm');
+        $this->sessionm->logout();
     }
 }
 

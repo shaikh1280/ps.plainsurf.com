@@ -20,9 +20,9 @@ class Registerm extends CI_Model {
     
     public function remailcheck($data = '') {
         $email = $data;
-        $q = $this->db->get_where('account', array('email' => $email));
-        $re = $q->result();
-        if ($re != null) {
+        $query = $this->db->get_where('account', array('email' => $email));
+        $result = $query->result();
+        if ($result != null) {
             return 1;
         }else{
             return 0;
@@ -37,11 +37,11 @@ class Registerm extends CI_Model {
                 'password_md5' =>hash('sha256',$data[2])
             );
             $this->db->where('email', $data[1]);
-            $q = $this->db->insert('account',$udata);
+            $query = $this->db->insert('account',$udata);
 
-            if ($q) {
+            if ($query) {
                 $message = "You Successfully Registered . You can login now .";
-                echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";
+                echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/session';</script>";
             } else {
                 $message = "Error updating record: " . $q->error;
                 echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/register';</script>";

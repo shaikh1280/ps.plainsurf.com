@@ -9,7 +9,7 @@
             <p class="login-box-msg">Sign in to start your session</p>
 
             <?php
-            echo form_open('/user/login/logincheck', ['class' => 'form', 'method' => 'POST']);
+            echo form_open('/user/session/logincheck', ['class' => 'form', 'method' => 'POST']);
             ?>
             <div class="form-group has-feedback">
                 <?php

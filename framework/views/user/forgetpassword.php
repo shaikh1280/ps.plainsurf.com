@@ -30,7 +30,7 @@
                     $data = array(
                         'type' => 'submit',
                         'value' => 'Cancel',
-                        'formaction' => '/user/login',
+                        'formaction' => '/user/session',
                         'class' => 'btn btn-danger'
                     );
                     echo form_submit($data);
