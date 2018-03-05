@@ -12,6 +12,9 @@
  * @author King-TheHacker
  */
 class Forgetpassword extends CI_Controller {
+        public function __construct() {
+        parent::__construct();
+    }
     public function index() {
         $viewConfig = array('data'=>array( 
             'fileName'=> '/user/forgetpassword',

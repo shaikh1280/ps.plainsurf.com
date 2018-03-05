@@ -12,7 +12,10 @@
  * @author farhat
  */
 class Login extends CI_Controller {
-
+    public function __construct() {
+        parent::__construct();
+        
+    }
     public function index() {
         $viewConfig = array('data'=>array( 
             'fileName'=> '/user/login',
@@ -28,7 +31,7 @@ class Login extends CI_Controller {
         'pass1' => hash('sha256', $this->input->post('pass1')) 
         );
         $this->load->model('loginm');
-        $this->loginm->logincheck($data); 
+        $this->loginm->logincheck($data);
     }
 }
 

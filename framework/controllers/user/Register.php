@@ -12,7 +12,7 @@
  * @author farhat
  */
 class Register extends CI_Controller {
-
+    
     public function index() {
         $viewConfig = array('data'=>array( 
             'fileName'=> '/user/register',

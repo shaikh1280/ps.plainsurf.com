@@ -11,19 +11,19 @@
  *
  * @author king-thehacker
  */
-class Loginm extends CI_Controller {
+class Loginm extends CI_Model {
 
     //put your code here
     public function __construct() {
         parent::__construct();
         $this->load->database();
-        $this->load->library('session');
     }
 
     public function logincheck($data = '') {
         $q = $this->db->get_where('account', array('email' => $data['email1'], 'password_md5' => $data['pass1']));        
         $re = $q->result()[0];
         if ($re != NULL) {
+            session_start();
             $ip = $_SERVER['REMOTE_ADDR'];
             $location = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
             $info = array(
@@ -43,16 +43,11 @@ class Loginm extends CI_Controller {
             
             $this->db->insert('session',$finaldata);
             
-            $usersession = array(
-                'uid' => $re->id,
-                'sid' => $this->db->insert_id(),
-                'username' => $re->username,
-                'mail' => $re->email
-            );
-            
-            $this->session->set_userdata($usersession);
-            
-            echo "<script type='text/javascript'>window.location.href = '/user/setting';</script>";
+            $_SESSION['uid']=$re->id;
+            $_SESSION['sid']=$this->db->insert_id();
+            $_SESSION['username']=$re->username;
+            $_SESSION['mail']=$re->email;
+            header('location:/main');
         } else {
             $message = "Your mail Or password are not correct";
             echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/login';</script>";

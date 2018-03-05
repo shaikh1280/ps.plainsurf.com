@@ -12,7 +12,7 @@
  *
  * @author King-TheHacker
  */
-class Reset extends CI_Controller {
+class Reset extends CI_Model {
 
     public function __construct() {
         parent::__construct();

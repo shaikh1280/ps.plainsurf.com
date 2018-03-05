@@ -23,10 +23,11 @@ class Main extends CI_Controller {
         $viewConfig = array('data'=>array( 
             'fileName'=> 'main',
             'pageName'=>'main', 
-            'pageTitle'=>'Home'
+            'pageTitle'=>'Home',
         ));
         $this->load->library('viewTemplate',$viewConfig);
         $this->viewtemplate->render();
 	}
+        
 }
 
