@@ -11,7 +11,7 @@
  *
  * @author farhat
  */
-class Profile extends CI_Controller {
+class Profile extends CI_Controller {    
     //put your code here
     public function index() {
         $viewConfig = array('data'=>array( 
@@ -23,3 +23,4 @@ class Profile extends CI_Controller {
         $this->viewtemplate->render();     
     }
 }
+

@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <div class="login-box">
-        <div class="login-logo">
+    <div class="register-box">
+        <div class="register-logo">
             <a href="login"><b>Plain</b>Surf</a>
         </div>
-        <!-- /.login-logo -->
-        <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+        <div class="register-box-body">
+            <p class="login-box-msg">Register a new membership</p>
             <?php
-            echo form_open('/login', ['class' => 'form', 'method' => 'POST']);
+            echo form_open('/register/', ['class' => 'form', 'method' => 'POST']);
             ?>
+            <div class="form-group has-feedback">
+                <?php
+                $data = array(
+                    'type' => 'text',
+                    'name' => 'name',
+                    'value'=> set_value('name'),
+                    'placeholder' => 'Please Enter Your Name ',
+                    'class' => 'form-control'
+                );
+                echo form_input($data);
+                ?>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
             <div class="form-group has-feedback">
                 <?php
                 $data = array(
                     'type' => 'email',
                     'name' => 'email',
+                    'value'=> set_value('email'),
                     'placeholder' => 'Please Enter Your Email ',
                     'class' => 'form-control'
                 );
@@ -34,6 +47,18 @@
                 ?>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+            <div class="form-group has-feedback">
+                <?php
+                $data = array(
+                    'type' => 'password',
+                    'name' => 'pass2',
+                    'placeholder' => 'Please Re-enter ',
+                    'class' => 'form-control'
+                );
+                echo form_password($data);
+                ?>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
             <div class="row">
                 <div class="checkbox icheck">
                     <div class="col-xs-7">
@@ -45,11 +70,12 @@
                             'value' => '1',
                             'checked' => TRUE,
                             'onchange' => 'activateButton(this)',
-                            'style' => 'margin:1px'
+                            'style'    => 'margin:1px'
                         );
+
                         echo form_checkbox($data);
                         ?>
-                        <label>Remember Me</label>
+                        <label>I agree to the <a href="#">terms</a></label>
                     </div>
                 </div>
                 <!-- /.col -->
@@ -58,7 +84,7 @@
                     $data = array(
                         'type' => 'submit',
                         'id' => 'submit',
-                        'value' => 'Sign In',
+                        'value' => 'Sign Up',
                         'class' => 'btn btn-primary btn-block btn-flat'
                     );
                     echo form_submit($data);
@@ -67,20 +93,19 @@
                 <!-- /.col -->
             </div>
             <?php echo form_close(); ?>
+
             <div class="social-auth-links text-center">
                 <p>- OR -</p>
-                <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+                <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
                     Facebook</a>
-                <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+                <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
                     Google+</a>
             </div>
-            <!-- /.social-auth-links -->
-            <a href="/forgetpassword">I forgot my password</a><br>
-            <a href="/register" class="text-center">Register a new membership</a>
+            <a href="/login" class="text-center">I already have a membership</a>
         </div>
-        <!-- /.login-box-body -->
+        <!-- /.form-box -->
     </div>
-    <!-- /.login-box -->
+    <!-- /.register-box -->
     <script>
         $(function () {
             $('input').iCheck({
@@ -89,5 +114,16 @@
                 increaseArea: '20%' // optional
             });
         });
+        function disableSubmit() {
+            document.getElementById("submit").disabled = true;
+        }
+
+        function activateButton(element) {
+            if (element.checked) {
+                document.getElementById("submit").disabled = false;
+            } else {
+                document.getElementById("submit").disabled = true;
+            }
+        }
     </script>
 </html>

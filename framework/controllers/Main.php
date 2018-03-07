@@ -28,4 +28,6 @@ class Main extends CI_Controller {
         $this->load->library('viewTemplate',$viewConfig);
         $this->viewtemplate->render();
 	}
+        
 }
+
