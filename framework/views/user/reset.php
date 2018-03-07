@@ -11,7 +11,7 @@ $hash = $_GET['q'];
         <div class="login-box-body">
             <p class="login-box-msg">Reset Password</p>
             <?php
-            echo form_open('/user/forgetpassword/update?q=' . $hash, ['class' => 'form', 'method' => 'POST']);
+            echo form_open('/user/forgetpassword/resetpassword?q=' . $hash, ['class' => 'form', 'method' => 'POST']);
             ?>
             <div class="form-group has-feedback">
                 <?php

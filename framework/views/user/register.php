@@ -9,13 +9,14 @@
             <p class="login-box-msg">Register a new membership</p>
 
             <?php
-            echo form_open('/user/register/registration', ['class' => 'form', 'method' => 'POST']);
+            echo form_open('/user/register/', ['class' => 'form', 'method' => 'POST']);
             ?>
             <div class="form-group has-feedback">
                 <?php
                 $data = array(
                     'type' => 'text',
                     'name' => 'name',
+                    'value'=> set_value('name'),
                     'placeholder' => 'Please Enter Your Name ',
                     'class' => 'form-control'
                 );
@@ -28,6 +29,7 @@
                 $data = array(
                     'type' => 'email',
                     'name' => 'email',
+                    'value'=> set_value('email'),
                     'placeholder' => 'Please Enter Your Email ',
                     'class' => 'form-control'
                 );

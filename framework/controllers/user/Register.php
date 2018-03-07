@@ -12,8 +12,18 @@
  * @author farhat
  */
 class Register extends CI_Controller {
-    
     public function index() {
+        $this->form_validation->set_rules('name', 'name', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required');
+        $this->form_validation->set_rules('pass1', 'password', 'required');
+        $this->form_validation->set_rules('pass2', 'password', 'required');
+        $this->form_validation->set_rules('C1', 'Select team and condition', 'required');
+        if ($this->form_validation->run('') == FALSE) {
+            if(validation_errors()==NULL){
+                
+            }else{
+             echo '<script> alert("'.str_replace(array("\r","\n"), '\n', validation_errors()).'"); </script>';   
+            }
         $viewConfig = array('data'=>array( 
             'fileName'=> '/user/register',
             'pageName'=>'forgetpassword', 
@@ -21,6 +31,9 @@ class Register extends CI_Controller {
         ));
         $this->load->library('viewTemplate',$viewConfig);
         $this->viewtemplate->render();  
+        }else{
+            $this->registration();
+        }
     }
     
     public function registration() {

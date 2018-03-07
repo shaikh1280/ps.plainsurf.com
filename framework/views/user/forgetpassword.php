@@ -8,10 +8,10 @@
         <div class="login-box-body">
             <p class="login-box-msg">Enter Your Registered Email ID</p>
             <?php
-            echo form_open('/user/forgetpassword/check', ['class' => 'form', 'method' => 'POST']);
+            echo form_open('/user/forgetpassword', ['class' => 'form', 'method' => 'POST']);
             ?>
             <div class="form-group has-feedback">
-                <?php
+                <?php 
                 $data = array(
                     'type' => 'email',
                     'name' => 'u_email',

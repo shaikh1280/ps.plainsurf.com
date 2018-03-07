@@ -17,6 +17,14 @@ class Session extends CI_Controller {
         
     }
     public function index() {
+        $this->form_validation->set_rules('email', 'email', 'required');
+        $this->form_validation->set_rules('pass1', 'password', 'required');
+        if ($this->form_validation->run('') == FALSE) {
+            if(validation_errors()==NULL){
+                
+            }else{
+             echo '<script> alert("'.str_replace(array("\r","\n"), '\n', validation_errors()).'"); </script>';   
+            }
         $viewConfig = array('data'=>array( 
             'fileName'=> '/user/login',
             'pageName'=>'login', 
@@ -24,6 +32,9 @@ class Session extends CI_Controller {
         ));
         $this->load->library('viewTemplate',$viewConfig);
         $this->viewtemplate->render();
+        }else{
+            $this->logincheck();
+        }
     }
     public function logincheck() {
         $data = array(
