@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 4 Feb, 2018, 1:10:20 PM
+    Author     : farhat
+*/
+.header-input-form {
+  width: 100%;
+} 
+.header-input .header-input-form .header-input-form-input {
+  width: 100%;
+} 
+@media(max-width : 767px){
+  header.main-header .navbar-custom-menu.right-0-sm {
+    right : 0px;
+  }
+}
+
+@media(min-width:1040px){
+  header.main-header .header-input {
+    width: 60%;
+  } 
+}
+
+@media(min-width:768px) and (max-width : 1039px){
+  header.main-header .header-input {
+    width: 100%;
+  } 
+}

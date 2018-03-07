@@ -26,7 +26,4 @@ class ViewTemplate {
     public function render() {
         $this->controller->load->view('index', $this->data);
     }
-    public function render1() {
-        $this->controller->load->view('login', $this->data);
-    }
 }

@@ -21,11 +21,13 @@ class Main extends CI_Controller {
 	public function index()
 	{
         $viewConfig = array('data'=>array( 
-            'fileName'=> '/user/login',
-            'pageName'=>'login', 
-            'pageTitle'=>'login'
+            'fileName'=> 'main',
+            'pageName'=>'main', 
+            'pageTitle'=>'Home',
         ));
         $this->load->library('viewTemplate',$viewConfig);
-        $this->viewtemplate->render1();
+        $this->viewtemplate->render();
 	}
+        
 }
+

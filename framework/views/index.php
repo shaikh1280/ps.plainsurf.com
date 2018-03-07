@@ -10,9 +10,8 @@ $pwd = __DIR__;
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <?php require_once $pwd.'/templates/global_style.php' ;?>
     </head>
-    <body id='<?=$pageName?>' class="hold-transition skin-blue sidebar-mini">
+    <body id='<?=$pageName?>' class="hold-transition skin-purple layout-top-nav login-page">
         <?php require_once $pwd.'/templates/page_header.php'; ?>
-        <?php require_once $pwd.'/templates/sidebar.php'; ?>
         <?php require_once $pwd."/$fileName.php"; ?>
         <?php require_once $pwd.'/templates/global_js.php' ;?>
     </body>
