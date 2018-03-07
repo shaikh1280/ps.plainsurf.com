@@ -51,11 +51,11 @@ class Register extends CI_Controller {
              $this->registerm->signup($data);   
             }else{
             $message = "Your Enter Password Does Not match";
-            echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/register';</script>";
+            echo "<script type='text/javascript'>alert('$message');window.location.href = '/register';</script>";
             }
         }else{
             $message = "This Mail is Already Registered";
-            echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/register';</script>";
+            echo "<script type='text/javascript'>alert('$message');window.location.href = '/register';</script>";
         }
     }
 }

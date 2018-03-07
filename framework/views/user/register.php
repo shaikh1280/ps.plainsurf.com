@@ -7,7 +7,7 @@
         <div class="register-box-body">
             <p class="login-box-msg">Register a new membership</p>
             <?php
-            echo form_open('/user/register/', ['class' => 'form', 'method' => 'POST']);
+            echo form_open('/register/', ['class' => 'form', 'method' => 'POST']);
             ?>
             <div class="form-group has-feedback">
                 <?php
@@ -101,7 +101,7 @@
                 <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
                     Google+</a>
             </div>
-            <a href="/user/session" class="text-center">I already have a membership</a>
+            <a href="/login" class="text-center">I already have a membership</a>
         </div>
         <!-- /.form-box -->
     </div>
@@ -119,13 +119,11 @@
         }
 
         function activateButton(element) {
-
             if (element.checked) {
                 document.getElementById("submit").disabled = false;
             } else {
                 document.getElementById("submit").disabled = true;
             }
-
         }
     </script>
 </html>

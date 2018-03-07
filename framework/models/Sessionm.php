@@ -47,7 +47,7 @@ class Sessionm extends CI_Model {
             header('location:/main');
         } else {
             $message = "Your mail Or password are not correct";
-            echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/session';</script>";
+            echo "<script type='text/javascript'>alert('$message');window.location.href = '/login';</script>";
         }
     }
     

@@ -42,10 +42,10 @@ session_start();
                                 </li>
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/user/Setting" class="btn btn-default btn-flat">Setting</a>
+                                        <a href="/setting" class="btn btn-default btn-flat">Setting</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="/user/Session/logout" class="btn btn-default btn-flat">Sign Out</a>
+                                        <a href="/logout" class="btn btn-default btn-flat">Sign Out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -66,10 +66,10 @@ session_start();
                                 </li>
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/user/session" class="btn btn-default btn-flat">Sign In</a>
+                                        <a href="/login" class="btn btn-default btn-flat">Sign In</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="/user/register" class="btn btn-default btn-flat">Sign Up</a>
+                                        <a href="/register" class="btn btn-default btn-flat">Sign Up</a>
                                     </div>
                                 </li>
                             </ul>

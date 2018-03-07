@@ -8,7 +8,7 @@
         <div class="login-box-body">
             <p class="login-box-msg">Sign in to start your session</p>
             <?php
-            echo form_open('/user/session/', ['class' => 'form', 'method' => 'POST']);
+            echo form_open('/login', ['class' => 'form', 'method' => 'POST']);
             ?>
             <div class="form-group has-feedback">
                 <?php
@@ -75,8 +75,8 @@
                     Google+</a>
             </div>
             <!-- /.social-auth-links -->
-            <a href="/user/forgetpassword">I forgot my password</a><br>
-            <a href="/user/register" class="text-center">Register a new membership</a>
+            <a href="/forgetpassword">I forgot my password</a><br>
+            <a href="/register" class="text-center">Register a new membership</a>
         </div>
         <!-- /.login-box-body -->
     </div>

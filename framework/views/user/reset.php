@@ -5,13 +5,13 @@ $hash = $_GET['q'];
 <html>
     <div class="login-box">
         <div class="login-logo">
-            <a href="/user/forgetpassword/resetpassword"><b>Reset</b>Password</a>
+            <a href="/resetpassword"><b>Reset</b>Password</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Reset Password</p>
             <?php
-            echo form_open('/user/forgetpassword/resetpassword?q=' . $hash, ['class' => 'form', 'method' => 'POST']);
+            echo form_open('/resetpassword?q=' . $hash, ['class' => 'form', 'method' => 'POST']);
             ?>
             <div class="form-group has-feedback">
                 <?php
@@ -44,7 +44,7 @@ $hash = $_GET['q'];
                     $data = array(
                         'type' => 'submit',
                         'value' => 'Cancel',
-                        'formaction' => '/user/session',
+                        'formaction' => '/login',
                         'class' => 'btn btn-danger'
                     );
                     echo form_submit($data);

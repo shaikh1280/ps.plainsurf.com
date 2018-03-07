@@ -33,7 +33,7 @@ class Reset extends CI_Model {
             $encryptkey = openssl_encrypt($email, $encrypt_method, $key, 0, $iv);
             $encodekey = base64_encode($encryptkey);
             $baseurl = base_url();            
-            $pwrurl = $baseurl . "user/forgetpassword/resetpassword?q=" . $encodekey;
+            $pwrurl = $baseurl . "resetpassword?q=" . $encodekey;
             $query = $this->db->insert('temp_reset_link',array('email'=>$email,'reset_link'=>$pwrurl,'time'=>mdate('%Y-%m-%d %h:%i %a'),'status'=>'vaild','last_modifiy'=>NULL ));
             // Mail them their key
             $mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
@@ -43,7 +43,7 @@ class Reset extends CI_Model {
             header('Location:'.$pwrurl);
         } else {
             $message = "Your Enter mail it not in the Database. Plz Enter Registered Mail Id";
-            echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword';</script>";
+            echo "<script type='text/javascript'>alert('$message');window.location.href = '/forgetpassword';</script>";
         }
     }
 
@@ -67,21 +67,21 @@ class Reset extends CI_Model {
             $q = $this->db->update('account',$udata);
             if ($q) {
                 $message = "Your Password is Successfully Changed . You can login now .";
-                echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/session';</script>";
+                echo "<script type='text/javascript'>alert('$message');window.location.href = '/login';</script>";
             } else {
                 $message = "Error updating record: " . $q->error;
-                echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword/resetpassword?q=$hash';</script>";
+                echo "<script type='text/javascript'>alert('$message');window.location.href = '/resetpassword?q=$hash';</script>";
             }
         } else {
             $message = "Your Enter Password are not match ";
-            echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword/resetpassword?q=$hash';</script>";
+            echo "<script type='text/javascript'>alert('$message');window.location.href = '/resetpassword?q=$hash';</script>";
         }
     }
     
     public function checkvaildlink() {
         $hash = $_GET['q'];
         $baseurl = base_url();            
-        $pwrurl = $baseurl . "user/forgetpassword/resetpassword?q=" . $hash;
+        $pwrurl = $baseurl . "/resetpassword?q=" . $hash;
         $query = $this->db->get_where('temp_reset_link', array('reset_link' => $pwrurl,'time >=' .mdate('%Y-%m-%d %h:%i %a').'+ INTERVAL 1 DAY'));
         $result = $query->result();
         if ($result != null) {

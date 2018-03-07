@@ -40,10 +40,10 @@ class Registerm extends CI_Model {
             $query = $this->db->insert('account',$udata);
             if ($query) {
                 $message = "You Successfully Registered . You can login now .";
-                echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/session';</script>";
+                echo "<script type='text/javascript'>alert('$message');window.location.href = '/login';</script>";
             } else {
                 $message = "Error updating record: " . $q->error;
-                echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/register';</script>";
+                echo "<script type='text/javascript'>alert('$message');window.location.href = '/register';</script>";
             }
     }
 }

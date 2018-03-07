@@ -8,7 +8,7 @@
         <div class="login-box-body">
             <p class="login-box-msg">Enter Your Registered Email ID</p>
             <?php
-            echo form_open('/user/forgetpassword', ['class' => 'form', 'method' => 'POST']);
+            echo form_open('/forgetpassword', ['class' => 'form', 'method' => 'POST']);
             ?>
             <div class="form-group has-feedback">
                 <?php 
@@ -30,7 +30,7 @@
                     $data = array(
                         'type' => 'submit',
                         'value' => 'Cancel',
-                        'formaction' => '/user/session',
+                        'formaction' => '/login',
                         'class' => 'btn btn-danger'
                     );
                     echo form_submit($data);

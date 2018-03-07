@@ -74,7 +74,7 @@ class Forgetpassword extends CI_Controller {
         }
         }else{
             $message = "Your link has expired";
-            echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/session';</script>";
+            echo "<script type='text/javascript'>alert('$message');window.location.href = '/login';</script>";
         }
     }
     
