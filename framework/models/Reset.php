@@ -28,16 +28,13 @@ class Reset extends CI_Model {
             $encrypt_method = "AES-256-CBC";
             $secret_key = 'This is my secret key';
             $secret_iv = 'This is my secret iv';
-
             $key = hash('sha256', $secret_key);
-
             $iv = substr(hash('sha256', $secret_iv), 0, 16);
-
             $encryptkey = openssl_encrypt($email, $encrypt_method, $key, 0, $iv);
             $encodekey = base64_encode($encryptkey);
-
-            $baseurl = base_url();
+            $baseurl = base_url();            
             $pwrurl = $baseurl . "user/forgetpassword/resetpassword?q=" . $encodekey;
+            $query = $this->db->insert('temp_reset_link',array('email'=>$email,'reset_link'=>$pwrurl,'time'=>mdate('%Y-%m-%d %h:%i %a'),'status'=>'vaild','last_modifiy'=>NULL ));
             // Mail them their key
             $mailbody = "Dear user,\n\nIf this e-mail does not apply to you please ignore it. It appears that you have requested a password reset at our website www.yoursitehere.com\n\nTo reset your password, please click the link below. If you cannot click it, please paste it into your web browser's address bar.\n\n" . $pwrurl . "\n\nThanks,\nThe Administration";
             //mail('akshay@plainsurf.com', "PlainSurf Password Reset Link", $mailbody);  //remove this comment when host
@@ -56,11 +53,8 @@ class Reset extends CI_Model {
         $hash = $data[2];
         $encrypt_method = "AES-256-CBC";
         $secret_key = 'This is my secret key';
-        $secret_iv = 'This is my secret iv';
-        // hash
+        $secret_iv = 'This is my secret iv';        
         $key = hash('sha256', $secret_key);
-
-        // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
         $iv = substr(hash('sha256', $secret_iv), 0, 16);
         $output = openssl_decrypt(base64_decode($hash), $encrypt_method, $key, 0, $iv);
         if ($p1 == $p2) {
@@ -71,7 +65,6 @@ class Reset extends CI_Model {
             );
             $this->db->where('email', $output);
             $q = $this->db->update('account',$udata);
-
             if ($q) {
                 $message = "Your Password is Successfully Changed . You can login now .";
                 echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/session';</script>";
@@ -82,6 +75,19 @@ class Reset extends CI_Model {
         } else {
             $message = "Your Enter Password are not match ";
             echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/forgetpassword/resetpassword?q=$hash';</script>";
+        }
+    }
+    
+    public function checkvaildlink() {
+        $hash = $_GET['q'];
+        $baseurl = base_url();            
+        $pwrurl = $baseurl . "user/forgetpassword/resetpassword?q=" . $hash;
+        $query = $this->db->get_where('temp_reset_link', array('reset_link' => $pwrurl,'time >=' .mdate('%Y-%m-%d %h:%i %a').'+ INTERVAL 1 DAY'));
+        $result = $query->result();
+        if ($result != null) {
+            return 0;
+        }else{
+            return 1;
         }
     }
 }

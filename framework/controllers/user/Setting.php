@@ -11,8 +11,7 @@
  *
  * @author farhat
  */
-class Setting extends CI_Controller {
-    
+class Setting extends CI_Controller {  
 //put your code here
     public function index() {
         $viewConfig = array('data'=>array( 

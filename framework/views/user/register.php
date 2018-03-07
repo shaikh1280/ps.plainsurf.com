@@ -4,10 +4,8 @@
         <div class="register-logo">
             <a href="login"><b>Plain</b>Surf</a>
         </div>
-
         <div class="register-box-body">
             <p class="login-box-msg">Register a new membership</p>
-
             <?php
             echo form_open('/user/register/', ['class' => 'form', 'method' => 'POST']);
             ?>
@@ -103,7 +101,6 @@
                 <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
                     Google+</a>
             </div>
-
             <a href="/user/session" class="text-center">I already have a membership</a>
         </div>
         <!-- /.form-box -->

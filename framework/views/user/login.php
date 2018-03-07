@@ -7,7 +7,6 @@
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Sign in to start your session</p>
-
             <?php
             echo form_open('/user/session/', ['class' => 'form', 'method' => 'POST']);
             ?>
@@ -48,7 +47,6 @@
                             'onchange' => 'activateButton(this)',
                             'style' => 'margin:1px'
                         );
-
                         echo form_checkbox($data);
                         ?>
                         <label>Remember Me</label>
@@ -69,7 +67,6 @@
                 <!-- /.col -->
             </div>
             <?php echo form_close(); ?>
-
             <div class="social-auth-links text-center">
                 <p>- OR -</p>
                 <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
@@ -78,10 +75,8 @@
                     Google+</a>
             </div>
             <!-- /.social-auth-links -->
-
             <a href="/user/forgetpassword">I forgot my password</a><br>
             <a href="/user/register" class="text-center">Register a new membership</a>
-
         </div>
         <!-- /.login-box-body -->
     </div>

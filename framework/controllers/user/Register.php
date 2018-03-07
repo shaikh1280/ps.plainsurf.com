@@ -12,6 +12,7 @@
  * @author farhat
  */
 class Register extends CI_Controller {
+
     public function index() {
         $this->form_validation->set_rules('name', 'name', 'required');
         $this->form_validation->set_rules('email', 'email', 'required');
@@ -56,6 +57,5 @@ class Register extends CI_Controller {
             $message = "This Mail is Already Registered";
             echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/register';</script>";
         }
-        //echo print_r($data);
     }
 }

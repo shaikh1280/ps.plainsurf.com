@@ -38,7 +38,6 @@ class Registerm extends CI_Model {
             );
             $this->db->where('email', $data[1]);
             $query = $this->db->insert('account',$udata);
-
             if ($query) {
                 $message = "You Successfully Registered . You can login now .";
                 echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/session';</script>";

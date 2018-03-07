@@ -12,13 +12,8 @@
  * @author King-TheHacker
  */
 class Forgetpassword extends CI_Controller {
-
-    public function __construct() {
-        parent::__construct();
-    }
-
+    
     public function index() {
-
         $this->form_validation->set_rules('u_email', 'email', 'required');
         if ($this->form_validation->run('') == FALSE) {
             if(validation_errors()==NULL){
@@ -44,7 +39,6 @@ class Forgetpassword extends CI_Controller {
         );
         $this->load->model('reset');
         $this->reset->check($data);
-        
     }
 
     public function update() {
@@ -59,6 +53,7 @@ class Forgetpassword extends CI_Controller {
 
     public function resetpassword() {
         
+        if($this->checkvaildlink() == TRUE){
         $this->form_validation->set_rules('pass1', 'password0', 'required');
         $this->form_validation->set_rules('pass2', 'password1', 'required');
         if ($this->form_validation->run('') == FALSE) {
@@ -76,6 +71,20 @@ class Forgetpassword extends CI_Controller {
         $this->viewtemplate->render();
         }else{
             $this->update();
+        }
+        }else{
+            $message = "Your link has expired";
+            echo "<script type='text/javascript'>alert('$message');window.location.href = '/user/session';</script>";
+        }
+    }
+    
+    public function checkvaildlink() {
+        $this->load->model('reset');
+        $ch = $this->reset->checkvaildlink();
+        if($ch == 0){
+            return TRUE;
+        }else{
+            return FALSE;
         }
     }
 }

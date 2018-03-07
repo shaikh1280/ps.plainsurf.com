@@ -8,7 +8,6 @@ session_start();
             <div class="navbar-header">
                 <a href="#" class="navbar-brand"><b>Plain</b>Surf</a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar-collapse pull-left collapse in header-input" id="navbar-collapse" aria-expanded="true">
                 <form class="navbar-form navbar-left header-input-form" role="search">
@@ -37,9 +36,7 @@ session_start();
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
                                     <img src="/assets/dist/img/person-male.png" class="img-circle" alt="User Image">
-
                                     <p>
-                                        
                                         <?php echo $_SESSION['username'];?>
                                     </p>
                                 </li>
@@ -62,7 +59,6 @@ session_start();
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
                                     <img src="/assets/dist/img/person-male.png" class="img-circle" alt="User Image">
-
                                     <p>
                                         Unknown User
                                         <small>Be a Member</small>

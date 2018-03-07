@@ -12,7 +12,6 @@
  * @author king-thehacker
  */
 class Sessionm extends CI_Model {
-
     //put your code here
     public function __construct() {
         parent::__construct();
@@ -40,9 +39,7 @@ class Sessionm extends CI_Model {
                 'uid' => $result->id,
                 'flag' => 'logged_in'
             );
-            
             $this->db->insert('session',$finaldata);
-            
             $_SESSION['uid']=$result->id;
             $_SESSION['sid']=$this->db->insert_id();
             $_SESSION['username']=$result->username;
@@ -83,5 +80,4 @@ class Sessionm extends CI_Model {
             session_destroy();
             header('location:/main');
     }
-
 }

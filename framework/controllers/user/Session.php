@@ -12,10 +12,7 @@
  * @author farhat
  */
 class Session extends CI_Controller {
-    public function __construct() {
-        parent::__construct();
-        
-    }
+    
     public function index() {
         $this->form_validation->set_rules('email', 'email', 'required');
         $this->form_validation->set_rules('pass1', 'password', 'required');
@@ -36,6 +33,7 @@ class Session extends CI_Controller {
             $this->logincheck();
         }
     }
+    
     public function logincheck() {
         $data = array(
         'email1' => $this->input->post('email'),
@@ -44,6 +42,7 @@ class Session extends CI_Controller {
         $this->load->model('sessionm');
         $this->sessionm->logincheck($data);
     }
+    
     public function logout() {
         $this->load->model('sessionm');
         $this->sessionm->logout();
